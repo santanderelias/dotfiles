@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+GAME_DIR="$HOME/Games/WoW"
+EXE_NAME="Wow.exe"
+
+# Verify the executable exists before trying to run it
+if [[ ! -f "$GAME_DIR/$EXE_NAME" ]]; then
+    echo "Error: $EXE_NAME not found in $GAME_DIR" >&2
+    exit 1
+fi
+
+# Wine usually prefers being in the game directory when launching
+cd "$GAME_DIR"
+
+# 'exec' replaces the current bash process with the game process
+exec wine "$EXE_NAME"

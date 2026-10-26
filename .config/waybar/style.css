@@ -1,0 +1,157 @@
+/* --- Global Reset & Base Setup --- */
+* {
+    font-family: "JetBrainsMono Nerd Font", FontAwesome, sans-serif;
+    font-size: 13px;
+    font-weight: bold;
+    min-height: 0;
+}
+
+/* Base Waybar Container - Completely Transparent */
+window#waybar {
+    background-color: transparent;
+    transition-property: background-color;
+    transition-duration: .3s;
+}
+
+/* Margin offset from screen edges for the floating look */
+.modules-left,
+.modules-center,
+.modules-right {
+    margin-top: 4px;
+    margin-left: 8px;
+    margin-right: 8px;
+}
+
+/* --- Pill Module Containers --- */
+/* Groups modules into clean floating capsules with reduced vertical padding */
+#workspaces,
+#window,
+.modules-right {
+    background-color: rgba(0, 0, 0, 0.75); /* Dark semi-transparent */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 1px 8px; /* Reduced top/bottom padding */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* --- Workspaces --- */
+#workspaces {
+    padding: 1px 4px;
+}
+
+#workspaces button {
+    padding: 1px 8px;
+    color: #a6adc8;
+    border-radius: 8px;
+    margin: 1px 2px;
+    transition: all 0.2s ease;
+}
+
+#workspaces button.active {
+    color: #11111b;
+    background-color: #cba6f7; /* Soft Mauve accent */
+    padding: 1px 12px; /* Expanding capsule effect */
+}
+
+#workspaces button:hover {
+    background-color: rgba(203, 166, 247, 0.2);
+    color: #cdd6f4;
+}
+
+/* --- Window Title (Center) --- */
+#window {
+    color: #cdd6f4;
+    padding: 1px 14px;
+}
+
+/* Hide empty window module when no window is active */
+window#waybar.empty #window {
+    background-color: transparent;
+    border: none;
+    box-shadow: none;
+}
+
+/* --- Right Side Modules --- */
+#clock,
+#battery,
+#cpu,
+#memory,
+#temperature,
+#network,
+#pulseaudio,
+#wireplumber,
+#tray,
+#custom-power {
+    padding: 1px 8px;
+    color: #cdd6f4;
+    margin: 1px 0;
+}
+
+/* Distinct accent colors for indicators */
+#pulseaudio {
+    color: #89b4fa; /* Blue */
+}
+
+#network {
+    color: #a6e3a1; /* Green */
+}
+
+#battery {
+    color: #f9e2af; /* Yellow */
+}
+
+#battery.charging {
+    color: #a6e3a1;
+}
+
+#battery.warning {
+    color: #fab387;
+}
+
+#battery.critical {
+    color: #f38ba8;
+}
+
+#clock {
+    color: #cba6f7; /* Lavender */
+    font-weight: bold;
+}
+
+#tray {
+    padding: 0 6px;
+}
+#custom-launcher {
+    background-color: rgba(0, 0, 0, 0.75); /* Dark semi-transparent */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 1px 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    color: #cdd6f4;
+}
+/* --- Japanese Vocab Flashcard Module --- */
+#custom-vocab {
+    background-color: #fff; /* Matches your dark semi-transparent theme */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 1px 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.9);
+    color: #000; /* #a6adc8 Peach accent color to make the Japanese text pop */
+    margin: 1px 4px;
+    font-weight: bold;
+    transition: color 0.9s ease;
+}
+
+#custom-vocab:hover {
+    background-color: #000; /* rgba(250, 179, 135, 0.15) Subtle peach glow on hover */
+    color: #fff; /* Shift color slightly on hover if desired #f38ba8*/
+    transition: color 0.9s ease;
+}
+#custom-vocab:hover span {
+    color: #fff; /* Put your desired color here */
+}
+
+#workspaces button.urgent,
+#battery.critical:not(.charging) {
+	color: #d83e43;
+}
+

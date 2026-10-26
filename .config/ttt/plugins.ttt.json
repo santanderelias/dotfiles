@@ -1,0 +1,68 @@
+[
+  {
+    "name": "json-viewer",
+    "displayName": "JSON Viewer",
+    "repo": "https://github.com/eugenioenko/ttt-plugins",
+    "path": "json-viewer",
+    "version": "0.1.0",
+    "enabled": true,
+    "permissions": {
+      "panel.editor": true,
+      "commands": true,
+      "editor.read": true,
+      "network.http": false
+    },
+    "grantsVersion": 2
+  },
+  {
+    "name": "git-history",
+    "displayName": "Git History",
+    "repo": "https://github.com/eugenioenko/ttt-plugins",
+    "path": "git-history",
+    "version": "0.1.0",
+    "enabled": true,
+    "permissions": {
+      "panel.sidebar": true,
+      "commands": true,
+      "editor.read": true,
+      "system.exec": [
+        "git"
+      ],
+      "network.http": false,
+      "events.editor": true
+    },
+    "grantsVersion": 2
+  },
+  {
+    "name": "lsp-html",
+    "displayName": "HTML Language Server",
+    "repo": "https://github.com/eugenioenko/ttt-plugins",
+    "path": "lsp-html",
+    "version": "0.1.0",
+    "enabled": true,
+    "permissions": {
+      "network.http": false,
+      "settings": true,
+      "settings_keys": [
+        "lsp.*"
+      ]
+    },
+    "grantsVersion": 2
+  },
+  {
+    "name": "lsp-css",
+    "displayName": "CSS Language Server",
+    "repo": "https://github.com/eugenioenko/ttt-plugins",
+    "path": "lsp-css",
+    "version": "0.1.0",
+    "enabled": true,
+    "permissions": {
+      "network.http": false,
+      "settings": true,
+      "settings_keys": [
+        "lsp.*"
+      ]
+    },
+    "grantsVersion": 2
+  }
+]

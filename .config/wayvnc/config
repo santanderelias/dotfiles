@@ -1,0 +1,9 @@
+# Listening address and port (0.0.0.0 binds to all interfaces)
+address=0.0.0.0
+port=5900
+
+# Authentication (VNC password)
+enable_auth=false
+username=okarun
+password=693
+

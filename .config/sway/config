@@ -1,0 +1,66 @@
+### Export Wayland & Keyring variables to D-Bus and Systemd
+exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP XDG_SESSION_TYPE PATH XDG_DATA_DIRS
+exec hash dbus-update-activation-environment 2>/dev/null && dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP XDG_SESSION_TYPE PATH XDG_DATA_DIRS
+
+include /etc/sway/config-vars.d/*
+include $HOME/.config/sway/config.d/colors
+include $HOME/.config/sway/config.d/*
+
+### Lock screen
+exec swayidle -w \
+	timeout 300 'brightnessctl -s && brightnessctl set 25' \
+		resume 'brightnessctl -r' \
+	timeout 450 '~/.config/sway/script/lock.sh' \
+	timeout 600 'swaymsg "output * power off"' \
+	    resume 'swaymsg "output * power on" && brightnessctl -r' \
+	before-sleep 'playerctl pause' \
+	before-sleep '~/.config/sway/script/lock.sh' \
+		after-resume 'swaymsg "output * power on" && brightnessctl -r' &
+
+# Status bar
+bar {
+    swaybar_command waybar
+}
+
+#custom
+# Toggle swaybar visibility
+# Toggle Waybar visibility
+bindsym $mod+n exec killall -SIGUSR1 waybar
+# Move current window to scratchpad ("minimize" / "hide")
+bindsym $mod+Shift+minus move scratchpad
+
+# Cycle through scratchpad windows ("show" / "restore")
+bindsym $mod+minus scratchpad show
+#exec mpvpaper -o "no-audio --loop-playlist --vf=hflip" "*" "/home/okarun/Video/matrix1.mp4"
+for_window [app_id="brave" title="^Brave Notifications$"] floating enable, move position mouse
+for_window [class="Brave-browser" title="^Brave Notifications$"] floating enable
+# Floating rules for Waydroid apps
+for_window [app_id="Waydroid"] floating enable
+# Open Geany as a floating window
+for_window [app_id="geany"] floating enable
+for_window [class="Geany"] floating enable
+# Open Caja as a floating window
+for_window [app_id="caja"] floating enable
+for_window [class="Caja"] floating enable
+# SwayFX effects
+corner_radius 10
+# Disable rounded corners when a window is tiled alone in a workspace
+smart_corner_radius enable
+blur enable
+blur_xray enable
+blur_passes 2
+blur_radius 5
+shadows enable
+shadow_color #0000007F
+default_dim_inactive 0
+#<float value 0.0 - 1.0>
+dim_inactive_colors.unfocused #000000FF
+# Treat moving to/from scratchpad as a Wayland minimize action
+scratchpad_minimize enable
+
+# Slide easing curve (presets: linear, ease, ease-in, ease-out, ease-in-out, menu_decel)
+
+
+
+# Autostart Fcitx5 input method
+exec "fcitx5 -d"

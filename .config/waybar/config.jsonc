@@ -1,0 +1,179 @@
+// -*- mode: jsonc -*-
+{
+    "layer": "top",
+    "position": "top",
+    "modules-left": [
+        "custom/launcher",
+        "hyprland/workspaces",
+	"hyprland/scratchpad",
+        "hyprland/window"
+    ],
+    "modules-center": [
+    ],
+    "modules-right": [
+		"custom/vocab",
+        "tray",
+        "backlight",
+        "custom/star-divider",
+        "pulseaudio",
+        "custom/star-divider",
+        "group/power-display",
+        "group/time-display"
+    ],
+    "power-profiles-daemon": {
+        "format": "{icon}",
+        "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+        "tooltip": true,
+        "format-icons": {
+          "default": "",
+          "performance": "",
+          "balanced": "",
+          "power-saver": ""
+        }
+    },
+    "group/power-display": {
+        "orientation": "horizontal",
+        "modules": [
+            "battery",
+            "power-profiles-daemon",
+            "custom/star-divider"
+        ],
+        "drawer": {
+            "transition-duration": 200,
+            "transition-left-to-right": false
+        }
+    },
+    "group/time-display": {
+        "orientation": "horizontal",
+        "modules": [
+            "clock#time",
+            //"custom/star-divider",
+            "clock#date"
+        ],
+        "drawer": {
+            "transition-duration": 200,
+            "transition-left-to-right": true
+        }
+    },
+    "custom/launcher": {
+		"locale": "ja_JP.UTF-8",
+		"format": "元",
+        //"format": "ム",
+        "tooltip": true,
+        "tooltip-format": "これはもと\nね",
+        "on-click": "exec hyprlauncher"
+    },
+    "hyprland/scratchpad": {
+    	"format": " 📦 {count} ",
+    	"show-empty": false,
+    	"tooltip": true,
+    	"tooltip-format": "{app}: {title}"
+    },
+    "hyprland/workspaces": {
+        "disable-scroll": true,
+        "enable-bar-scroll": true,
+        "format": "{icon}",
+        "format-icons": {
+            "1": "一",
+            "2": "二",
+            "3": "三",
+            "4": "四",
+            "5": "五",
+            "6": "六",
+            "7": "七",
+            "8": "八",
+            "9": "九",
+            "10": "十"
+        }
+    },
+    "hyprland/window": {
+        "format": "{}"
+    },
+    "tray": {
+        "icon-size": 14,
+        "spacing": 8
+    },
+    "backlight": {
+        "device": "intel_backlight",
+        "format": "   {percent}%",
+        //"on-scroll-up": "exec brightnessctl set 5%+",
+        //"on-scroll-down": "exec brightnessctl --min-value=5% set 5%-",
+        "min-brightness": 5,
+        "tooltip": false
+    },
+    "custom/star-divider": {
+        "format": "✦",
+        "tooltip": false
+    },
+    "pulseaudio": {
+        "format": "{icon}   {volume:2}%   {format_source}",
+        "format-bluetooth": "{icon}   {volume:2}%    {format_source}",
+        "format-bluetooth-muted": "{icon}  {format_source}",
+        "format-muted": "{icon} {format_source}",
+        "format-source": "  {volume:2}%",
+        "format-source-muted": " ",
+        "format-icons": {
+            "headphone": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "default": [
+                "",
+                // Increase number of icons indicating "some volume" and "high volume" so the "empty speaker" is only used in <10%
+                "",
+                "",
+                "",
+                "",
+                "",
+                ""
+            ]
+        },
+        "scroll-step": 1,
+        "on-click": "pamixer -t",
+        "on-click-right": "pavucontrol"
+    },
+"custom/vocab": {
+    "format": "{}",
+    "return-type": "json",
+    "interval": 2,                 // check often so rotation feels responsive
+    "signal": 8,
+    "tooltip": false,
+    "exec": "python3 ~/.config/waybar/scripts/vocab_module.py",
+    "on-click": "python3 ~/.config/waybar/scripts/vocab_module.py click && pkill -RTMIN+8 waybar",
+    "on-scroll-up": "python3 ~/.config/waybar/scripts/vocab_module.py prev && pkill -RTMIN+8 waybar",
+    "on-scroll-down": "python3 ~/.config/waybar/scripts/vocab_module.py next && pkill -RTMIN+8 waybar"
+},
+    "battery": {
+        "interval": 5,
+        "states": {
+            "warning": 25,
+            "critical": 15
+        },
+        "format": "{icon}  {capacity}%",
+        "format-charging": "{icon} 󱐋  {capacity}%",
+        "format-plugged": "{icon} 󱐋  {capacity}%",
+        "format-alt": "{icon}  {time} remaining",
+        "format-icons": [
+            "",
+            "",
+            "",
+            "",
+            ""
+        ]
+    },
+    "clock#week": {
+	"locale": "ja_JP.UTF-8",
+    "format": "{:L%a}",                     // ← single kanji (月火水木金土日)
+    "tooltip-format": "<tt><big>{calendar}</big></tt>"
+    },
+    "clock#time": {
+	"locale": "ja_JP.UTF-8",
+        "format": "{:L%a %H:%M}",
+        "tooltip-format": "<tt><big>{calendar}</big></tt>"
+    },
+    "clock#date": {
+	"locale": "ja_JP.UTF-8",
+        "format": "{:%d 日 %m 月 %Y 年}",
+        "tooltip-format": "<tt><big>{calendar}</big></tt>"
+    }
+}

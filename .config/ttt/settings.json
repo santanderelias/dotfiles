@@ -1,0 +1,99 @@
+{
+  "version": 1,
+  "theme": "monokai",
+  "appearance": {
+    "icons": "nerd-font",
+    "scrollbarGlyphs": "blocks"
+  },
+  "editor": {
+    "wordBasedSuggestions": true,
+    "tabSize": 4,
+    "insertSpaces": true,
+    "wordWrap": true,
+    "diffMode": "split",
+    "diffContext": "changes",
+    "diffWordWrap": false,
+    "diffHighContrast": false,
+    "diffEmphasizeCollapsedRows": false,
+    "diffSigns": false,
+    "diffSignsColor": true,
+    "diffGutterHighlight": true,
+    "diffColorGutterNumbers": false,
+    "diffScrollbarGitMarks": false,
+    "lineNumbers": true,
+    "formatOnSave": false,
+    "insertFinalNewline": true,
+    "trimTrailingWhitespace": false,
+    "focusOnOpen": false,
+    "syntaxHighlight": true,
+    "gitGutter": true,
+    "scrollbarGitMarks": true,
+    "autoDedent": true,
+    "autoIndent": true,
+    "gutterStyle": "compact",
+    "borderStyle": "rounded",
+    "bracketPairColorization": true,
+    "showTrailingNewline": true,
+    "menuBar": true,
+    "transparentBackground": true,
+    "saveAllOnQuit": false,
+    "saveAllOnQuitExceptUnnamed": false
+  },
+  "search": {
+    "debounce": 350
+  },
+  "explorer": {
+    "showHidden": true,
+    "showGitIgnored": true,
+    "gitStatusColors": true,
+    "dimStagedGitColors": true,
+    "autoReveal": true
+  },
+  "git": {
+    "fileView": "list"
+  },
+  "terminal": {
+    "scrollback": 1000
+  },
+  "lsp": {
+    "servers": {
+      "css": {
+        "command": [
+          "vscode-css-language-server",
+          "--stdio"
+        ],
+        "languages": {
+          ".css": "css",
+          ".less": "less",
+          ".scss": "scss"
+        }
+      },
+      "html": {
+        "command": [
+          "vscode-html-language-server",
+          "--stdio"
+        ]
+      }
+    },
+    "saveOnRename": false,
+    "hoverDelay": 500
+  },
+  "autocomplete": {
+    "enabled": true,
+    "autoSuggest": true,
+    "debounce": 150,
+    "signatureHelp": true
+  },
+  "markdown": {
+    "wrapWidth": 80
+  },
+  "image": {
+    "protocol": "auto"
+  },
+  "plugins": {
+    "enabled": true
+  },
+  "welcome": {
+    "recentFolders": true
+  }
+}

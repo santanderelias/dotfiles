@@ -1,0 +1,14 @@
+#!/bin/bash
+case $(date +%u) in
+  1) kanji="月" ;;
+  2) kanji="火" ;;
+  3) kanji="水" ;;
+  4) kanji="木" ;;
+  5) kanji="金" ;;
+  6) kanji="土" ;;
+  7) kanji="日" ;;
+esac
+
+tooltip=$(date "+%Y年%m月%d日 (%A)")
+
+printf '{"text":"%s","tooltip":"%s"}\n' "$kanji" "$tooltip"

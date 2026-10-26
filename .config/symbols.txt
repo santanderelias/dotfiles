@@ -1,0 +1,17 @@
+Superᵈ Superscript d (e.g. Qᵈ)
+Subᵈ Subscript d (e.g. Qᵈ)
+ᵇ Superscript b
+ˣ Superscript x
+¹ Superscript 1
+² Superscript 2
+³ Superscript 3
+⁺ Superscript +
+⁻ Superscript -
+₁ Subscript 1
+₂ Subscript 2
+₃ Subscript 3
+₊ Subscript +
+₋ Subscript -
+α Alpha
+β Beta
+Δ Delta
